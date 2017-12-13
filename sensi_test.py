@@ -1,7 +1,7 @@
 import sys
 import unittest
 import logging
-import sensi.service
+import service
 import ConfigParser
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
