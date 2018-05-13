@@ -6,9 +6,8 @@ import ConfigParser
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
-config_parser = ConfigParser.ConfigParser()
-config_parser.read(["sensi_test.cfg"])
-config = config_parser.defaults()
+config = ConfigParser.ConfigParser()
+config.readfp(open('sensi_test.cfg'))
 
 class SensiTest(unittest.TestCase):
     def setUp(self):
@@ -19,9 +18,9 @@ class SensiTest(unittest.TestCase):
 
     # Smoke test
     def test_connect(self):
-        svc = service.SensiThermostatService(config["user"], config["password"])
+        svc = service.SensiThermostatService(config.get('SectionOne','user'), config.get('SectionOne','password'))
         svc.start()
-        svc.add_listener(sensi.service.dump_data)
+        svc.add_listener(service.dump_data)
         svc.add_listener(self.data_callback)
         svc.subscribe()
         for n in xrange(10):
