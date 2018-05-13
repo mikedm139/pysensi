@@ -1,1 +1,0 @@
-/mnt/d/jared/git/python-sensi/sensi_test.py

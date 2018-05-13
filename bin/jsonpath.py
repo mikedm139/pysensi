@@ -1,4 +1,4 @@
-#!/mnt/d/jared/git/python-sensi/bin/python2
+#!/home/mike/DevProjects/pysensi/bin/python2
 
 # -*- coding: utf-8 -*-
 import re

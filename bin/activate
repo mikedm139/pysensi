@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/mnt/d/jared/git/python-sensi"
+VIRTUAL_ENV="/home/mike/DevProjects/pysensi"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

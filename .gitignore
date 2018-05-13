@@ -1,2 +1,4 @@
-sensi_test.cfg
+*.cfg
 *.pyc
+
+

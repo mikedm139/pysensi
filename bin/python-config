@@ -1,4 +1,4 @@
-#!/mnt/d/jared/git/python-sensi/bin/python
+#!/home/mike/DevProjects/pysensi/bin/python
 
 import sys
 import getopt
