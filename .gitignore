@@ -1,4 +1,8 @@
 *.cfg
 *.pyc
 
-
+# virtual env
+include/
+lib/
+local/
+pip-selfcheck.json
