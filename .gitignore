@@ -6,3 +6,7 @@ include/
 lib/
 local/
 pip-selfcheck.json
+
+# ignore dist files
+dist/
+pysensi.egg-info/
