@@ -1,3 +1,4 @@
 [SectionOne]
-user = <USERNAME/EMAIL>
-password = <PASSWORD>
+user = 
+password =
+temperature_scale = 

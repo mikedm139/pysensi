@@ -37,9 +37,10 @@ REALTIME_HEADERS = {
 }
 
 class SensiThermostatService(object):
-    def __init__(self, username, password):
+    def __init__(self, username, password, temperature_scale):
         self.username = username
         self.password = password
+	self.temperature_scale = temperature_scale
         self.connection_token = None
         self.session = requests.session()
         self.log = logging.getLogger(type(self).__name__)
@@ -248,7 +249,7 @@ class SensiThermostatService(object):
                 return thermostat
         return None
 
-    def set_heat(self, temperature, temperature_scale='F', icd=None):
+    def set_heat(self, temperature, icd=None):
         if icd is None:
             if len(self.thermostats) == 1:
                 icd = self.thermostats[0]["ICD"]
@@ -264,7 +265,7 @@ class SensiThermostatService(object):
             'data': json.dumps({
                 'H': 'thermostat-v1',
                 'M': 'SetHeat',
-                'A': [icd, temperature, temperature_scale],
+                'A': [icd, temperature, self.temperature_scale],
                 'I': 1
             }, separators=(',', ':'))
         }
@@ -307,7 +308,7 @@ def get_json_value(json_data, path):
 
 def dump_data(thermostat, status, data, updated_keys):
     pprint([status, thermostat['DeviceName'], thermostat['ICD']])
-    pprint(['Temp:', get_json_value(data, "OperationalStatus.Temperature.F")])
+    pprint(['Temp:', get_json_value(data, "OperationalStatus.Temperature.C"), 'C',  get_json_value(data, "OperationalStatus.Temperature.F"), 'F'])
     pprint(['Running:', get_json_value(data, "OperationalStatus.Running.Mode")])
     pprint(['Battery:', get_json_value(data, "OperationalStatus.BatteryVoltage")])
     pprint(['UpdatedKeys', updated_keys])

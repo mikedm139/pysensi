@@ -18,7 +18,7 @@ class SensiTest(unittest.TestCase):
 
     # Smoke test
     def test_connect(self):
-        svc = service.SensiThermostatService(config.get('SectionOne','user'), config.get('SectionOne','password'))
+        svc = service.SensiThermostatService(config.get('SectionOne','user'), config.get('SectionOne','password'), config.get('SectionOne','temperature_scale'))
         svc.start()
         svc.add_listener(service.dump_data)
         svc.add_listener(self.data_callback)
