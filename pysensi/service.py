@@ -40,7 +40,7 @@ class SensiThermostatService(object):
     def __init__(self, username, password, temperature_scale):
         self.username = username
         self.password = password
-	self.temperature_scale = temperature_scale
+        self.temperature_scale = temperature_scale
         self.connection_token = None
         self.session = requests.session()
         self.log = logging.getLogger(type(self).__name__)
