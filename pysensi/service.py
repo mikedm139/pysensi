@@ -276,8 +276,8 @@ class SensiThermostatService(object):
             params=params,
             headers=REALTIME_HEADERS)
 
-        print 'request headers:'
-        print "\n".join("{}: {}".format(k, v) for k, v in response.request.headers.iteritems())
+        self.log.info('request headers:')
+        self.log.info( "\n".join("{}: {}".format(k, v) for k, v in response.request.headers.iteritems()))
 
 #
 #
