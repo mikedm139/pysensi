@@ -10,3 +10,8 @@ pip-selfcheck.json
 # ignore dist files
 dist/
 pysensi.egg-info/
+
+build/
+
+bin/jsonpath.py
+bin/chardetect
