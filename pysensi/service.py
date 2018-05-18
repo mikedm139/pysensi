@@ -276,8 +276,8 @@ class SensiThermostatService(object):
             params=params,
             headers=REALTIME_HEADERS)
 
-        self.log.info('request headers:')
-        self.log.info( "\n".join("{}: {}".format(k, v) for k, v in response.request.headers.iteritems()))
+        self.log.debug('request headers:')
+        self.log.debug( "\n".join("{}: {}".format(k, v) for k, v in response.request.headers.iteritems()))
 
 #
 #
@@ -312,5 +312,5 @@ def dump_data(thermostat, status, data, updated_keys):
     pprint(['Running:', get_json_value(data, "OperationalStatus.Running.Mode")])
     pprint(['Battery:', get_json_value(data, "OperationalStatus.BatteryVoltage")])
     pprint(['UpdatedKeys', updated_keys])
-    print "---------"
+    print("---------")
 
